@@ -1,0 +1,184 @@
+                <section class="location-section">
+                    <h2>Location-Based Recommendations</h2>
+                    <div id="locationRecs" class="location-recs"></div>
+                </section>
+                <section class="group-section">
+                    <h2>Group/Family Tracking</h2>
+                    <div class="group-controls">
+                        <input id="groupNameInput" type="text" placeholder="Group/Family Name" style="margin-right:0.5em;">
+                        <button id="joinGroupBtn" type="button">Join/Create Group</button>
+                        <span id="groupStatus" style="margin-left:1em;font-size:0.98em;color:#388e3c;"></span>
+                    </div>
+                    <div class="group-leaderboard-container">
+                        <h3>Group Leaderboard</h3>
+                        <ol id="groupLeaderboardList"></ol>
+                    </div>
+                </section>
+                <section class="gamification-section">
+                    <h2>Gamification & Leaderboard</h2>
+                    <div class="user-gamification">
+                        <span id="userPoints">Points: 0</span> |
+                        <span id="userStreak">Streak: 0</span>
+                    </div>
+                    <div class="leaderboard-container">
+                        <h3>Leaderboard</h3>
+                        <ol id="leaderboardList"></ol>
+                    </div>
+                </section>
+                <section class="dashboard-visual-section">
+                    <h2>Footprint Dashboard</h2>
+                    <div class="dashboard-controls">
+                        <label>Period:
+                            <select id="dashboardPeriod">
+                                <option value="week">Weekly</option>
+                                <option value="month">Monthly</option>
+                                <option value="year">Yearly</option>
+                            </select>
+                        </label>
+                        <label>Category:
+                            <select id="dashboardCategory">
+                                <option value="all">All</option>
+                                <option value="travel">Travel</option>
+                                <option value="diet">Diet</option>
+                                <option value="shopping">Shopping</option>
+                            </select>
+                        </label>
+                    </div>
+                    <canvas id="dashboardChart" width="340" height="180" style="display:block;margin:1.2rem auto 0 auto;"></canvas>
+                </section>
+                <section class="insights-section">
+                    <h2>Personalised Insights</h2>
+                    <div id="aiSummary" class="ai-summary"></div>
+                    <div id="aiRecommendations" class="ai-recommendations"></div>
+                </section>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Carbon Footprint Tracker</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#43a047">
+</head>
+<body>
+    <div class="container">
+        <div class="cloud-sync-bar">
+            <button id="signInBtn" type="button">Sign in with Google</button>
+            <button id="syncBtn" type="button" style="display:none;">Sync Now</button>
+            <span id="syncStatus" style="margin-left:1em;font-size:0.98em;color:#388e3c;"></span>
+        </div>
+        <header>
+            <h1>Personal Carbon Footprint Tracker</h1>
+        </header>
+        <main>
+            <form id="carbonForm">
+                <section class="input-section">
+                    <h2>Travel</h2>
+                    <label>Car (km): <input type="number" id="carKm" min="0" required></label>
+                    <label>Bus (km): <input type="number" id="busKm" min="0" required></label>
+                    <label>Plane (km): <input type="number" id="planeKm" min="0" required></label>
+                </section>
+                <section class="input-section">
+                    <h2>Diet</h2>
+                    <label>Vegetarian Days (per week): <input type="number" id="vegDays" min="0" max="7" required></label>
+                    <label>Meat Meals (per week): <input type="number" id="meatMeals" min="0" required></label>
+                </section>
+                <section class="input-section">
+                    <h2>Shopping</h2>
+                    <label>Clothing Items (per month): <input type="number" id="clothingItems" min="0" required></label>
+                    <label>Electronics (per year): <input type="number" id="electronics" min="0" required></label>
+                </section>
+                <button type="submit">Calculate</button>
+            </form>
+            <div class="pdf-export-controls">
+                <label>Date Range:
+                    <input type="date" id="pdfStartDate"> to <input type="date" id="pdfEndDate">
+                </label>
+                <button id="exportPDF" type="button">Export Sustainability Report (PDF)</button>
+            </div>
+            <div class="chart-section">
+                <canvas id="emissionsChart" width="340" height="180" style="display:block;margin:1.2rem auto 0 auto;"></canvas>
+            </div>
+            <div id="exportArea">
+                <div id="results">
+                    <!-- Results will appear here -->
+                </div>
+                <section id="dashboard" class="dashboard-section">
+                    <h2>Weekly Goals</h2>
+                    <div class="goal">
+                        <span>Travel: &lt; 100 kg CO₂</span>
+                        <div class="progress-bar-bg"><div class="progress-bar" id="travelBar"></div></div>
+                    </div>
+                    <div class="goal">
+                        <span>Diet: &lt; 30 kg CO₂</span>
+                        <div class="progress-bar-bg"><div class="progress-bar" id="dietBar"></div></div>
+                    </div>
+                    <div class="goal">
+                        <span>Shopping: &lt; 50 kg CO₂</span>
+                        <div class="progress-bar-bg"><div class="progress-bar" id="shoppingBar"></div></div>
+                    </div>
+                    <div class="eco-rating">
+                        <h3>Eco Rating: <span id="ecoRating">-</span></h3>
+                    </div>
+                </section>
+                <section class="badges-section">
+                    <h2>Achievements & Badges</h2>
+                    <div id="badgesContainer" class="badges-container">
+                        <!-- Badges will appear here -->
+                    </div>
+                </section>
+                <section class="whatif-section">
+                    <h2>What If? Simulation</h2>
+                    <div class="whatif-controls">
+                        <label>Habit:
+                            <select id="whatifHabit">
+                                <option value="meatMeals">Reduce Meat Meals</option>
+                                <option value="carKm">Replace Car Trips with Walking</option>
+                                <option value="vegDays">Add Vegetarian Days</option>
+                            </select>
+                        </label>
+                        <label>Change:
+                            <input type="number" id="whatifValue" value="1" min="1" max="30" style="width:60px;">
+                        </label>
+                        <button id="whatifSimulate" type="button">Simulate</button>
+                    </div>
+                    <div id="whatifResult" class="whatif-result"></div>
+                </section>
+                <section class="actions-section">
+                    <h2>Recommended Actions</h2>
+                    <ul class="actions-list">
+                        <li>Walk, cycle, or use public transport for short trips.</li>
+                        <li>Choose vegetarian meals more often.</li>
+                        <li>Buy fewer, higher-quality clothing items.</li>
+                        <li>Unplug electronics when not in use.</li>
+                        <li>Track your progress weekly and set new goals.</li>
+                    </ul>
+                </section>
+                <section class="ai-recommend-section">
+                    <h2>Personalised Suggestions</h2>
+                    <div id="aiRecs">
+                        <!-- AI or rule-based recommendations will appear here -->
+                    </div>
+                </section>
+                <section class="history-section">
+                    <h2>Data History <span style="font-size:0.8em;color:#888;">(coming soon)</span></h2>
+                    <div class="history-placeholder">
+                        <em>Your past results will appear here to help you track your journey over time.</em>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="app.js"></script>
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                    navigator.serviceWorker.register('sw.js');
+                });
+            }
+        </script>
+</body>
+</html>

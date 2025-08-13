@@ -36,6 +36,16 @@ npm start
 
 Open the app in your browser via the local server or static host. Interact with the dashboard to view sustainability footprint charts, export reports as PDFs, and use offline features if PWA is installed.
 
+## Hackathon & Project Origin
+This project was initially inspired by the EU Climate Hack and other sustainability-focused competitions, completed as a 36-hour MVP sprint. The goal was to rapidly prototype a personal carbon footprint tracker that offers actionable sustainability insights.
+
+### MVP Features
+* Log travel, diet, and shopping habits through an intuitive web form.
+* Calculate estimated carbon footprint using fixed emission multipliers.
+* Display “Weekly Goals” with progress bars to motivate users.
+* Export footprint summaries as PDFs using static HTML to PDF conversion.
+* Provide a colour-coded “Eco Rating” for quick impact assessment.
+
 ## License
 
 Including a LICENSE file clarifies how others may use, modify, and distribute your code. By choosing an open-source license such as MIT, you grant permission for use under defined terms while protecting your intellectual property and limiting liability.

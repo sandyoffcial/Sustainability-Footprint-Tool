@@ -65,8 +65,7 @@ Sustainability-Footprint-Tool/
 ```
 
 ## Roadmap
-
-* Implimentation has been taken care of however need to ensure the full backend works. 
+Implimentation has been taken care of however need to ensure the full backend works. 
 
 * User authentication (sign in with Google)
 * Cloud sync, saving/loading data

